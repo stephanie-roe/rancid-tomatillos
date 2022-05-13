@@ -2,14 +2,15 @@ import React from 'react'
 import '../css/MoviesContainer.css'
 import Poster from './Poster'
 
-const MoviesContainer = ({ movies }) => {
+const MoviesContainer = ({ movies, findMovie }) => {
     const moviePosters = movies.map(movie => {
         return (
-            <Poster 
+            <Poster
             id={movie.id}
-            key={movie.id} 
+            key={movie.id}
             title={movie.title}
             posterUrl={movie.poster_path}
+            findMovie={ findMovie }
              />
         )
     })
