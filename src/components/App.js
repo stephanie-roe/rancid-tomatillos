@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../css/App.css';
 import movieData from '../movieData'
 import MoviesContainer from './MoviesContainer'
+import MovieDetailsContainer from './MovieDetailsContainer'
 
 
 class App extends Component {
@@ -18,21 +19,23 @@ class App extends Component {
   }
 
   findMovie = (id) => {
-    console.log("that worked")
     const movie = this.state.movies.find((movie) => movie.id === id);
-    console.log(movie)
     this.setState({ movies: [...this.state.movies],
                     movieSelected: movie })
   }
 
-
+  redirectHome = () => {
+    this.setState({ movies: [...this.state.movies],
+                    movieSelected: null })
+  }
 
   render() {
+
     // conditional logic goes here-- say if the element that was clicked has an id matching one of the ids in the state, then render that movie card
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
-        {this.state.movieSelected ? <h2>conditional logic passing</h2> : <MoviesContainer movies={this.state.movies} findMovie={ this.findMovie }/> }
+        {this.state.movieSelected ? <MovieDetailsContainer movieSelected={ this.state.movieSelected } redirectHome={ this.redirectHome}/> : <MoviesContainer movies={this.state.movies} findMovie={ this.findMovie }/> }
       </main>
       )
   }
