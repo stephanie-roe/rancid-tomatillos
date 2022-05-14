@@ -1,3 +1,19 @@
-img {
-  height: 300px;
+.MovieDetailsCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(14, 6, 48, 0.40);
+  border-radius: 10px;
+}
+
+.mini-poster {
+  width: 20%;
+  height: auto;
+}
+
+.details-container {
+  width: 70%;
+
 }

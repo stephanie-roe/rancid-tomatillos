@@ -1,4 +1,17 @@
+* {
+  font-family: 'Poppins', sans-serif;
+  border: solid 2px yellow;
+
+}
+
+h1,
+h2,
+p {
+  color: white;
+}
+
 body {
+  background-color: #0E0630;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
