@@ -3,8 +3,10 @@ import '../css/MovieDetailsContainer.css'
 import MovieDetailsCard from './MovieDetailsCard'
 
 
-const MoviesDetailsContainer = ({ movieSelected, redirectHome }) => {
-  
+const MoviesDetailsContainer = ({ movieSelected, redirectHome, status }) => {
+  if (status) {
+    return 
+  } else {
   return (
     <div className="MoviesDetailsContainer" style={{
           backgroundImage: `url(${movieSelected.movie.backdrop_path})`
@@ -16,8 +18,8 @@ const MoviesDetailsContainer = ({ movieSelected, redirectHome }) => {
                         runtime={movieSelected.movie.runtime}
                         overview={movieSelected.movie.overview}/>
       <button onClick={() => redirectHome()}>TAKE ME HOME</button>
-    </div>
-  )
+    </div>)
+  }
   // background will be the background image from prop obj
 }
 
