@@ -15,14 +15,27 @@ class App extends Component {
   // add it to state as a property -- movie to be displayed -- dev empathy
   // similar to invoking the func in conditional logic and seeing it its truthy or flasy
   componentDidMount = () => {
-    this.setState({ movies: movieData.movies })
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    .then(response => response.json())
+    .then(movieData => this.setState({ movies: movieData.movies }))
+    .catch(error => console.log("error"))
   }
 
   findMovie = (id) => {
-    const movie = this.state.movies.find((movie) => movie.id === id);
-    this.setState({ movies: [...this.state.movies],
-                    movieSelected: movie })
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(response => response.json())
+      .then(movie => this.setState({ movies: [...this.state.movies],
+        movieSelected: movie }))
+      .catch(error => console.log("error"))
   }
+
+
+  // findMovie = (id) => {
+  //   const movie = this.state.movies.find((movie) => movie.id === id);
+  //   // set movie to be the object.
+  //   this.setState({ movies: [...this.state.movies],
+  //                   movieSelected: movie })
+  // }
 
   redirectHome = () => {
     this.setState({ movies: [...this.state.movies],

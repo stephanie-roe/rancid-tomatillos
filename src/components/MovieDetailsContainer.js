@@ -4,14 +4,17 @@ import MovieDetailsCard from './MovieDetailsCard'
 
 
 const MoviesDetailsContainer = ({ movieSelected, redirectHome }) => {
-
+  
   return (
     <div className="MoviesDetailsContainer" style={{
-          backgroundImage: `url(${movieSelected.backdrop_path})`
+          backgroundImage: `url(${movieSelected.movie.backdrop_path})`
         }}>
-      <MovieDetailsCard posterUrl={ movieSelected.poster_path }
-                        title={movieSelected.title}
-                        averageRating={movieSelected.average_rating}/>
+      <MovieDetailsCard posterUrl={ movieSelected.movie.poster_path }
+                        title={movieSelected.movie.title}
+                        averageRating={movieSelected.movie.average_rating}
+                        id={movieSelected.movie.id}
+                        runtime={movieSelected.movie.runtime}
+                        overview={movieSelected.movie.overview}/>
       <button onClick={() => redirectHome()}>TAKE ME HOME</button>
     </div>
   )
