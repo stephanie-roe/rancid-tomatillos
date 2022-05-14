@@ -2,4 +2,12 @@
     height: 500px;
     width: auto;
     border-radius: 15px;
+    /* border: solid 2px yellow; */
+
+}
+
+.Poster:hover {
+  box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.7);
+  transform: scale(1.02);
+  transition: .4s;
 }

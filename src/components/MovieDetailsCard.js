@@ -5,7 +5,7 @@ import '../css/MovieDetailsCard.css';
 const MovieDetailsCard = ({ posterUrl, title, averageRating, overview, runtime }) => {
   return (
     <div className="MovieDetailsCard">
-      <img src={ posterUrl }/>
+      <img className="mini-poster" src={ posterUrl }/>
       <div className="details-container">
         <h2>{ title }</h2>
         <p>Average Rating: { averageRating }</p>

@@ -10,7 +10,7 @@ const MoviesDetailsContainer = ({ movieSelected, redirectHome, status }) => {
   return (
     <div className="MoviesDetailsContainer" style={{
           backgroundImage: `url(${movieSelected.movie.backdrop_path})`
-        }}>
+        , backgroundSize: "100% auto"}}>
       <MovieDetailsCard posterUrl={ movieSelected.movie.poster_path }
                         title={movieSelected.movie.title}
                         averageRating={movieSelected.movie.average_rating}
