@@ -17,7 +17,7 @@ const MoviesDetailsContainer = ({ movieSelected, redirectHome, status }) => {
                         id={movieSelected.movie.id}
                         runtime={movieSelected.movie.runtime}
                         overview={movieSelected.movie.overview}/>
-      <button onClick={() => redirectHome()}>TAKE ME HOME</button>
+      <button className="take-me-home" onClick={() => redirectHome()}>TAKE ME HOME</button>
     </div>);
   }
 };
