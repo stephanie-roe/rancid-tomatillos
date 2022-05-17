@@ -7,10 +7,10 @@ const MovieDetailsCard = ({ posterUrl, title, averageRating, overview, runtime }
     <div className="MovieDetailsCard">
       <img className="mini-poster" src={ posterUrl }/>
       <div className="details-container">
-        <h2>{ title }</h2>
-        <p>Average Rating: { averageRating }</p>
-        <p>Overview: { overview }</p>
-        <p>Runtime: { runtime }mins</p>
+        <h2 className='title'>{ title }</h2>
+        <p className='average-rating'>Average Rating: { averageRating }</p>
+        <p className='overview'>Overview: { overview }</p>
+        <p className='runtime'>Runtime: { runtime }mins</p>
       </div>
     </div>
   );

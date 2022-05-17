@@ -16,6 +16,7 @@ class App extends Component {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
     .then(response => {
       if(response.ok){
+        console.log(response, 'response')
         return response.json();
       } else {
         throw Error(response.status);
@@ -52,7 +53,7 @@ class App extends Component {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
-        {this.state.status && <h2>Oops, something went wrong</h2>}
+        {this.state.status && <h2 className='error-message'>Oops, something went wrong</h2>}
         {this.state.movieSelected ?
           <MovieDetailsContainer movieSelected={ this.state.movieSelected } redirectHome={ this.redirectHome} status={this.state.status}/> : <MoviesContainer movies={this.state.movies} findMovie={ this.findMovie }/> }
       </main>
