@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/MoviesContainer.css';
 import Poster from './Poster';
 
-const MoviesContainer = ({ movies, findMovie }) => {
+const MoviesContainer = ({ movies, getID }) => {
     const moviePosters = movies.map(movie => {
         return (
             <Poster
@@ -10,7 +10,7 @@ const MoviesContainer = ({ movies, findMovie }) => {
             key={movie.id}
             title={movie.title}
             posterUrl={movie.poster_path}
-            findMovie={ findMovie }
+            getID={ getID }
              />);
     });
     return (

@@ -17,7 +17,7 @@ class App extends Component {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
     .then(response => {
       if(response.ok){
-        console.log(response, 'response')
+        //console.log(response, 'response')
         return response.json();
       } else {
         throw Error(response.status);
@@ -29,26 +29,32 @@ class App extends Component {
       status: true })})
   }
 
-  findMovie = (id) => {
-    //iterate over state all movies and see if we can find matching ids, return that id, which
-    console.log(id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(response => {
-      if(response.ok) {
-        return response.json();
-      } else {
-        throw Error(response.status);
-      }})
-      .then(movie => {
-        this.setState({ movies: [...this.state.movies],
-        movieSelected: movie })
-        console.log(this.state.movieSelected)
-      })
-      .catch(error => {
-        console.log(error);
-        this.setState({ movies: [], movieSelected: { },
-        status: true })})
+  getID = (id) => {
+    this.setState({ 
+            movies: [...this.state.movies],
+            movieID: id })
   }
+
+  // findMovie = (id) => {
+  //   //iterate over state all movies and see if we can find matching ids, return that id, which
+  //   console.log(id)
+  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+  //   .then(response => {
+  //     if(response.ok) {
+  //       return response.json();
+  //     } else {
+  //       throw Error(response.status);
+  //     }})
+  //     .then(movie => {
+  //       this.setState({ movies: [...this.state.movies],
+  //       movieSelected: movie })
+  //       console.log(this.state.movieSelected)
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //       this.setState({ movies: [], movieSelected: { },
+  //       status: true })})
+  // }
 
   // async findMovie = (id) => {
   //   await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
@@ -92,7 +98,7 @@ class App extends Component {
     return (
       <main className='App'>
         <h1>Rancid Tomatillos</h1>
-        <Route exact path="/" render={() => < MoviesContainer movies={this.state.movies} findMovie={ this.findMovie }/>} />
+        <Route exact path="/" render={() => < MoviesContainer movies={this.state.movies} getID={ this.getID }/>} />
         <Route exact path="/:movieID" render={({ match }) => {
           return <MovieDetailsContainer id={ parseInt(match.params.movieID) } redirectHome={ this.redirectHome} />
         }} />
@@ -110,3 +116,4 @@ export default App;
 
 // {this.state.movieSelected ?
 //   <MovieDetailsContainer movieSelected={ this.state.movieSelected } redirectHome={ this.redirectHome} status={this.state.status}/> : <MoviesContainer movies={this.state.movies} findMovie={ this.findMovie }/> }
+
