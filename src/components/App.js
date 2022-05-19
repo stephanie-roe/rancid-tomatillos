@@ -3,6 +3,7 @@ import '../css/App.css';
 import MoviesContainer from './MoviesContainer';
 import MovieDetailsContainer from './MovieDetailsContainer';
 import { Route } from 'react-router-dom';
+// import { allMovies } from "../apiCalls.js"
 
 
 class App extends Component {
