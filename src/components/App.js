@@ -30,16 +30,8 @@ class App extends Component {
   }
 
   getID = (id) => {
-    this.setState({
-            movies: [...this.state.movies],
-            movieID: id })
-  }
-
-
-
-  redirectHome = () => {
-    this.setState({ movies: [...this.state.movies],
-                    movieID: 0 });
+    this.setState({movies: [...this.state.movies],
+                  movieID: id })
   }
 
   render() {
@@ -48,7 +40,7 @@ class App extends Component {
         <h1>Rancid Tomatillos</h1>
         <Route exact path="/" render={() => < MoviesContainer movies={this.state.movies} getID={ this.getID }/>} />
         <Route exact path="/:movieID" render={({ match }) => {
-          return <MovieDetailsContainer id={ parseInt(match.params.movieID) } redirectHome={ this.redirectHome} />
+          return <MovieDetailsContainer id={ parseInt(match.params.movieID) } />
         }} />
       </main>
     );
