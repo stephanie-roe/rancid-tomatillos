@@ -17,7 +17,7 @@ class App extends Component {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
     .then(response => {
       if(response.ok){
-   
+
         return response.json();
       } else {
         throw Error(response.status);
@@ -30,16 +30,16 @@ class App extends Component {
   }
 
   getID = (id) => {
-    this.setState({ 
+    this.setState({
             movies: [...this.state.movies],
             movieID: id })
   }
 
-  
+
 
   redirectHome = () => {
     this.setState({ movies: [...this.state.movies],
-                    movieSelected: null });
+                    movieID: 0 });
   }
 
   render() {
@@ -56,4 +56,3 @@ class App extends Component {
 };
 
 export default App;
-
