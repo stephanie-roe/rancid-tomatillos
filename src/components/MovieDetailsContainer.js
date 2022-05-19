@@ -4,9 +4,7 @@ import MovieDetailsCard from './MovieDetailsCard';
 import MoviesContainer from './MoviesContainer';
 import { Link } from 'react-router-dom';
 
-
-
-class MoviesDetailsContainer extends Component {
+class MovieDetailsContainer extends Component {
   constructor({ id }) {
 
     super()
@@ -18,33 +16,30 @@ class MoviesDetailsContainer extends Component {
 
   }
 
-  componentDidMount = () => {
-    // console.log("ID", this.state.movieID)
-    if (this.state.success === false) {fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieID}`)
-    .then(response => {
 
-      if(response.ok) {
-        return response.json();
-      } else {
-        throw Error(response.status);
-      }})
-      .then(movie => {
-        // console.log(movie, 'movie in showMovie')
-        this.setState({
-                movieID: this.state.movieID,
-                success: true,
-                movieSelected: movie
-         })
-         // console.log(this.state, 'State in SHowMovie')
-      })
-      .catch(error => {
-        console.log(error);
-        this.setState({
-            movieID: 0,
-            movieSelected: {},
-         success: false })})
-  }
-  }
+componentDidMount = () => {
+  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieID}`)
+  .then(response => {
+
+    if(response.ok) {
+      return response.json();
+    } else {
+      throw Error(response.status);
+    }})
+    .then(movie => {
+      this.setState({
+              movieID: this.state.movieID,
+              success: true,
+              movieSelected: movie
+       })
+    })
+    .catch(error => {
+      console.log(error);
+      this.setState({
+          movieID: 0,
+          movieSelected: {},
+          success: false })})
+}
 
   render() {
     if (this.state.success === false) {
@@ -68,4 +63,4 @@ class MoviesDetailsContainer extends Component {
 
 };
 
-export default MoviesDetailsContainer;
+export default MovieDetailsContainer;
