@@ -11,29 +11,31 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      success: null
     }
   }
 
   componentDidMount = () => {
-    // fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-    // .then(response => {
-    //   if(response.ok){
-    //
-    //     return response.json();
-    //   } else {
-    //     throw Error(response.status);
-    //   }})
-    // .then(movieData => this.setState({ movies: movieData.movies }))
-    // .catch(error => {
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    .then(response => {
+      if(response.ok){
+
+        return response.json();
+      } else {
+        throw Error(response.status);
+      }})
+    .then(movieData => this.setState({ movies: movieData.movies, success: true }))
+    .catch(error => {
+      console.log(error);
+      this.setState({ movies: [],
+      success: false })})
+    // Promise.all(
+    //   [allMovies]
+    // ).then( jsonArray => this.setState({ movies: [...jsonArray[0].movies], success:true }))
+    //  .catch(error => {
     //   console.log(error);
     //   this.setState({ movies: [],
-    //   status: true })})
-    Promise.all(
-      [allMovies]
-    ).then( jsonArray => this.setState({ movies: [...jsonArray[0].movies] }))
-     .catch(error => {
-      console.log(error);
-      this.setState({ movies: [] })})
+    //                   success: false})})
   }
 
   getID = (id) => {
@@ -42,15 +44,19 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <main className='App'>
-        <h1>Rancid Tomatillos</h1>
-        <Route exact path="/" render={() => < MoviesContainer movies={this.state.movies} getID={ this.getID }/>} />
-        <Route exact path="/:movieID" render={({ match }) => {
-          return <MovieDetailsContainer id={ parseInt(match.params.movieID) } />
-        }} />
-      </main>
-    );
+    if(this.state.success === false) {
+      return (<h2 className="error-message">Oops, something went wrong</h2>)
+    } else {
+      return (
+        <main className='App'>
+          <h1>Rancid Tomatillos</h1>
+          <Route exact path="/" render={() => < MoviesContainer movies={this.state.movies} getID={ this.getID }/>} />
+          <Route exact path="/:movieID" render={({ match }) => {
+            return <MovieDetailsContainer id={ parseInt(match.params.movieID) } />
+          }} />
+        </main>
+      );
+    }
   }
 };
 
