@@ -43,7 +43,7 @@ componentDidMount = () => {
 
   render() {
     if (this.state.success === false) {
-      return (<h2>Oops, something went wrong. Please try again</h2>)
+      return (<h2 className="error-message">Oops, something went wrong</h2>)
     } else if ( this.state.success === true) {
       return (<div className="MoviesDetailsContainer" style={{
                       backgroundImage: `url(${this.state.movieSelected.movie.backdrop_path})`,
