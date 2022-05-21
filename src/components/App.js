@@ -3,7 +3,7 @@ import '../css/App.css';
 import MoviesContainer from './MoviesContainer';
 import MovieDetailsContainer from './MovieDetailsContainer';
 import { Route } from 'react-router-dom';
-// import { allMovies } from "../apiCalls.js"
+import { allMovies } from "../apiCalls.js"
 
 
 class App extends Component {
@@ -15,19 +15,25 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-    .then(response => {
-      if(response.ok){
-
-        return response.json();
-      } else {
-        throw Error(response.status);
-      }})
-    .then(movieData => this.setState({ movies: movieData.movies }))
-    .catch(error => {
+    // fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    // .then(response => {
+    //   if(response.ok){
+    //
+    //     return response.json();
+    //   } else {
+    //     throw Error(response.status);
+    //   }})
+    // .then(movieData => this.setState({ movies: movieData.movies }))
+    // .catch(error => {
+    //   console.log(error);
+    //   this.setState({ movies: [],
+    //   status: true })})
+    Promise.all(
+      [allMovies]
+    ).then( jsonArray => this.setState({ movies: [...jsonArray[0].movies] }))
+     .catch(error => {
       console.log(error);
-      this.setState({ movies: [],
-      status: true })})
+      this.setState({ movies: [] })})
   }
 
   getID = (id) => {
