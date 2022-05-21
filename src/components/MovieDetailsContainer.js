@@ -10,7 +10,7 @@ class MovieDetailsContainer extends Component {
     super()
     this.state = {
       movieID: id,
-      success: false,
+      success: null,
       movieSelected: {}
     }
 
