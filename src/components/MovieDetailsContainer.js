@@ -50,7 +50,7 @@ componentDidMount = () => {
                       backgroundSize: "100% auto"}}>
                   <MovieDetailsCard posterUrl={ this.state.movieSelected.movie.poster_path }
                                     title={ this.state.movieSelected.movie.title }
-                                    averageRating={ this.state.movieSelected.movie.average_rating }
+                                    averageRating={ this.state.movieSelected.movie.average_rating.toFixed(1) }
                                     id={ this.state.movieSelected.movie.id }
                                     runtime={ this.state.movieSelected.movie.runtime }
                                     overview={ this.state.movieSelected.movie.overview } />
