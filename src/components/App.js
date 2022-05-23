@@ -3,7 +3,6 @@ import '../css/App.css';
 import MoviesContainer from './MoviesContainer';
 import MovieDetailsContainer from './MovieDetailsContainer';
 import { Route } from 'react-router-dom';
-import { allMovies } from "../apiCalls.js"
 
 
 class App extends Component {
@@ -12,8 +11,8 @@ class App extends Component {
     this.state = {
       movies: [],
       success: null
-    }
-  }
+    };
+  };
 
   componentDidMount = () => {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
@@ -28,24 +27,17 @@ class App extends Component {
     .catch(error => {
       console.log(error);
       this.setState({ movies: [],
-      success: false })})
-    // Promise.all(
-    //   [allMovies]
-    // ).then( jsonArray => this.setState({ movies: [...jsonArray[0].movies], success:true }))
-    //  .catch(error => {
-    //   console.log(error);
-    //   this.setState({ movies: [],
-    //                   success: false})})
-  }
+      success: false })});
+  };
 
   getID = (id) => {
     this.setState({movies: [...this.state.movies],
-                  movieID: id })
-  }
+                  movieID: id });
+  };
 
   render() {
     if(this.state.success === false) {
-      return (<h2 className="error-message">Oops, something went wrong</h2>)
+      return (<h2 className="error-message">Oops, something went wrong</h2>);
     } else {
       return (
         <main className='App'>
@@ -57,7 +49,8 @@ class App extends Component {
         </main>
       );
     }
-  }
+  };
+
 };
 
 export default App;

@@ -19,4 +19,4 @@ const MoviesContainer = ({ movies, getID }) => {
         </div>);
 };
 
-export default MoviesContainer
+export default MoviesContainer;

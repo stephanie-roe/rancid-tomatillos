@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import '../css/MovieDetailsContainer.css';
 import MovieDetailsCard from './MovieDetailsCard';
-import MoviesContainer from './MoviesContainer';
 import { Link } from 'react-router-dom';
 
 class MovieDetailsContainer extends Component {
   constructor({ id }) {
-
-    super()
+    super();
     this.state = {
       movieID: id,
       success: null,
       movieSelected: {}
-    }
-
-  }
-
+    };
+  };
 
 componentDidMount = () => {
   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieID}`)
@@ -38,12 +34,12 @@ componentDidMount = () => {
       this.setState({
           movieID: 0,
           movieSelected: {},
-          success: false })})
-}
+          success: false })});
+};
 
   render() {
     if (this.state.success === false) {
-      return (<h2 className="error-message">Oops, something went wrong</h2>)
+      return (<h2 className="error-message">Oops, something went wrong</h2>);
     } else if ( this.state.success === true) {
       return (<div>
       <div className="background-image" style={{
@@ -67,9 +63,9 @@ componentDidMount = () => {
                                     runtime={ this.state.movieSelected.movie.runtime }
                                     overview={ this.state.movieSelected.movie.overview } />
                 </div>
-                </div>)
+                </div>);
       }
-    }
+    };
 
 };
 
