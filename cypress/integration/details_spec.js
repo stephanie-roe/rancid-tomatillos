@@ -25,7 +25,6 @@ describe('Details page user flow', () => {
     })
 
     it('Should have a button that directs the user back to the home page', () => {
-
         cy.get('#726739').click()
         cy.get('.take-me-home').click()
         .get('.MoviesContainer').children()
@@ -60,7 +59,6 @@ describe('Details page user flow', () => {
     })
 
     it('should display an error message when the network request is unsuccessful', () => {
-     
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/726739', 
             {
             statusCode: 500
@@ -68,6 +66,11 @@ describe('Details page user flow', () => {
         cy.get('#726739').click()
         .get('.error-message')
         .should('contain', 'Oops, something went wrong')
+    })
+
+    it('Should have a specific URL when the user is visiting the details page', () => {
+        cy.get('#726739').click()
+        cy.location('pathname').should('eq', '/726739')
     })
 
 })

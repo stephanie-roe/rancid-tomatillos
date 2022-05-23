@@ -362,4 +362,8 @@ describe('Homepage user flow', () => {
         .should('contain', 'Oops, something went wrong')
     })
 
+    it('Should have a specific URL when the user is visiting the homepage', () => {
+        cy.location('pathname').should('eq', '/')
+    })
+
   });
