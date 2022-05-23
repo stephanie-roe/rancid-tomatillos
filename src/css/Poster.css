@@ -1,9 +1,7 @@
 .Poster {
-    height: 500px;
-    width: auto;
-    border-radius: 15px;
-    /* border: solid 2px yellow; */
-
+  border-radius: 15px;
+  height: 500px;
+  width: auto;
 }
 
 .Poster:hover {

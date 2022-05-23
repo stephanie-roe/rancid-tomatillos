@@ -1,25 +1,23 @@
 .MovieDetailsContainer {
-  /* z-index: 10; */
-  position: relative;
   height: 100%;
-
+  position: relative;
 }
 
 .take-me-home {
-  border-radius: 35px;
   background: rgba(255, 255, 255, 0.20);
-  color: white;
-  padding: 10px 20px;
-  margin-top: 30px;
-  margin-right: 40px;
-  margin-bottom: 30px;
   border: none;
-  font-size: larger;
+  border-radius: 35px;
+  color: white;
   cursor: pointer;
+  font-size: larger;
+  margin-bottom: 30px;
+  margin-right: 40px;
+  margin-top: 30px;
+  padding: 10px 20px;
 }
 
 .button-container {
-  width: 100vw;
   display: flex;
   justify-content: flex-end;
+  width: 100vw;
 }

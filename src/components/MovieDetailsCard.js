@@ -16,4 +16,4 @@ const MovieDetailsCard = ({ posterUrl, title, averageRating, overview, runtime }
   );
 };
 
-export default MovieDetailsCard
+export default MovieDetailsCard;

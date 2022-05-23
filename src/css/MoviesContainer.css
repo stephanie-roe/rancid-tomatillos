@@ -1,45 +1,42 @@
 .MoviesContainer {
-  overflow-y: scroll;
+  background: rgba(14, 6, 48, 0.21);
   display: grid;
+  grid-auto-columns: 4;
+  grid-auto-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
-  background: rgba(14, 6, 48, 0.21);
-	grid-auto-columns: 4;
-	grid-column-gap: 0px;
-	grid-row-gap: 20px;
-	grid-auto-rows: auto;
-  /* border: solid 2px yellow; */
+  overflow-y: scroll;
   place-items: center;
 }
 
 @media screen and (max-width: 1430px) {
 .MoviesContainer {
-	overflow-y: scroll;
-	display: grid;
-	  grid-template-columns: repeat(3, 1fr);
-	  grid-template-rows: 1fr 1fr 1fr;
-	background: rgba(14, 6, 48, 0.21);
-	  grid-auto-columns: 4;
-	  grid-column-gap: 20px;
-	  grid-row-gap: 20px;
-	  grid-auto-rows: auto;
-	/* border: solid 2px yellow; */
-	place-items: center;
+  background: rgba(14, 6, 48, 0.21);
+  display: grid;
+  grid-auto-columns: 4;
+  grid-auto-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  place-items: center;
   }
 }
 
 @media screen and (min-width: 1800px) {
 	.MoviesContainer {
-		overflow-y: scroll;
-		display: grid;
-		  grid-template-columns: repeat(5, 1fr);
-		  grid-template-rows: 1fr 1fr 1fr;
-		background: rgba(14, 6, 48, 0.21);
-		  grid-auto-columns: 4;
-		  grid-column-gap: 20px;
-		  grid-row-gap: 20px;
-		  grid-auto-rows: auto;
-		/* border: solid 2px yellow; */
-		place-items: center;
+    background: rgba(14, 6, 48, 0.21);
+    display: grid;
+    grid-auto-columns: 4;
+    grid-auto-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 20px;
+  	grid-template-columns: repeat(5, 1fr);
+  	grid-template-rows: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    place-items: center;
 	  }
 	}
