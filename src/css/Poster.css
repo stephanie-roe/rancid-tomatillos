@@ -7,7 +7,7 @@
 }
 
 .Poster:hover {
-  box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.7);
-  transform: scale(1.02);
-  transition: .4s;
+  box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.01);
+  transition: .25s;
 }

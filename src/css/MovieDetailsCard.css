@@ -3,17 +3,21 @@
   flex-direction: row;
   justify-content: space-around;
   margin: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 20px;
-  background: rgba(14, 6, 48, 0.40);
+  background: rgba(255, 255, 255, 0.20);
   border-radius: 10px;
 }
 
 .mini-poster {
   width: 20%;
   height: auto;
+  border-radius: 15px;
 }
 
 .details-container {
+  font-size: larger;
   width: 70%;
 
 }

@@ -45,18 +45,28 @@ componentDidMount = () => {
     if (this.state.success === false) {
       return (<h2 className="error-message">Oops, something went wrong</h2>)
     } else if ( this.state.success === true) {
-      return (<div className="MoviesDetailsContainer" style={{
+      return (<div>
+      <div className="background-image" style={{
                       backgroundImage: `url(${this.state.movieSelected.movie.backdrop_path})`,
-                      backgroundSize: "100% auto"}}>
+                      opacity: 0.2,
+                      height: '100%',
+                      width: '100%',
+                      backgroundRepeat: 'no-repeat',
+                      zIndex: -1,
+                      position: 'absolute'}}></div>
+      <div className="MoviesDetailsContainer" >
+                  <div className='button-container'>
+                    <Link to="/">
+                      <button className="take-me-home">TAKE ME HOME</button>
+                    </Link>
+                  </div>
                   <MovieDetailsCard posterUrl={ this.state.movieSelected.movie.poster_path }
                                     title={ this.state.movieSelected.movie.title }
                                     averageRating={ this.state.movieSelected.movie.average_rating.toFixed(1) }
                                     id={ this.state.movieSelected.movie.id }
                                     runtime={ this.state.movieSelected.movie.runtime }
                                     overview={ this.state.movieSelected.movie.overview } />
-                  <Link to="/">
-                    <button className="take-me-home">TAKE ME HOME</button>
-                  </Link>
+                </div>
                 </div>)
       }
     }
